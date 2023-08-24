@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/style.css') }}">
+    <title>Liste des Derniers Donateurs</title>
+</head>
+<body>
+    <header>
+        <h1>Liste des Derniers Donateurs</h1>
+        <p>Voici la liste des derniers donateurs :</p>
+        <p><a href="{{ url_for('donation_list') }}">Retour à la liste complète des donateurs</a></p>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Adresse</th>
+                    <th>E-mail</th>
+                    <th>Somme Promise (en euros)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for donor in recent_donors %}
+                    <tr>
+                        <td>{{ donor.nom }}</td>
+                        <td>{{ donor.prenom }}</td>
+                        <td>{{ donor.adresse }}</td>
+                        <td>{{ donor.email }}</td>
+                        <td>{{ donor.somme_promise }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>Contactez-nous : pmguevel@gmail.com</p>
+    </footer>
+</body>
+</html>

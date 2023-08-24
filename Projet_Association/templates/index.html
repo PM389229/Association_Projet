@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/style.css') }}">
+    <title>Association de Collecte de Dons</title>
+</head>
+<body>
+    <header>
+        <h1>Association de Collecte de Dons</h1>
+        <p>Bienvenue sur notre site dédié à la collecte de fonds pour une bonne cause.</p>
+        <p>Nous sommes déterminés à améliorer la vie de ceux qui en ont besoin et vous pouvez nous aider !</p>
+    </header>
+    <main>
+        <section class="objectives">
+            <h2>Objectifs de la Campagne</h2>
+            <p>
+                Notre campagne de collecte de fonds vise à soutenir monsieur Balkany.
+                Nous espérons atteindre un objectif de 300 000 € pour l'aider dans sa difficile ré-insertion.
+            </p>
+            <p>Total récolté jusqu'à présent : {{ total_recolte }} euros</p>
+        </section>
+        <section class="recent-donations">
+            <a href="{{ url_for('donation_list') }}">Voir les derniers donateurs</a>
+        </section>
+        <section class="donate-button">
+            <a href="{{ url_for('donation_form') }}" class="btn">Faire une promesse de don</a>
+        </section>
+    </main>
+    <footer>
+        <p>Contactez-nous : @pmguevel@gmail.com</p>
+    </footer>
+</body>
+</html>
